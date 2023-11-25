@@ -19,32 +19,36 @@ namespace Git2324
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string textoTelegrama;
+            string textoTelegramaMMA2324;
             char tipoTelegrama = ' ';
             int numPalabras = 0;
             double coste;
             //Leo el telegrama
-            textoTelegrama = txtTelegrama.Text;
+            textoTelegramaMMA2324 = txtTelegrama.Text;
             // telegrama urgente?
             if (cbUrgente.Checked)
                 tipoTelegrama = 'u';
+            else
+                tipoTelegrama = 'o';
             //Obtengo el número de palabras que forma el telegrama
-            numPalabras = textoTelegrama.Length;
+            numPalabras = textoTelegramaMMA2324.Split(' ').Length;
             //Si el telegrama es ordinario
             if (tipoTelegrama == 'o')
+            {
                 if (numPalabras <= 10)
-                    coste = 25;
+                    coste = 2.5;
                 else
-                    coste = 0.5 * numPalabras;
+                    coste = 2.5 + (0.5 * (numPalabras - 10));
+            }
             else
-            //Si el telegrama es urgente
-            if (tipoTelegrama == 'u')
+            {
+                //Si el telegrama es urgente
                 if (numPalabras <= 10)
                     coste = 5;
                 else
                     coste = 5 + 0.75 * (numPalabras - 10);
-            else
-                coste = 0;
+            }
+         
             txtPrecio.Text = coste.ToString() + " euros";
         }
     }
