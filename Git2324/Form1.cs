@@ -26,13 +26,14 @@ namespace Git2324
             //Leo el telegrama
             textoTelegramaMMA2324 = txtTelegrama.Text;
             // telegrama urgente?
-            if (cbUrgente.Checked)
+            if (rbUrg.Checked)
                 tipoTelegrama = 'u';
-            else
+            if (rbOrd.Checked)
                 tipoTelegrama = 'o';
             //Obtengo el número de palabras que forma el telegrama
             numPalabras = textoTelegramaMMA2324.Split(' ').Length;
             //Si el telegrama es ordinario
+            //Práctica Git MMMA 2324
             if (tipoTelegrama == 'o')
             {
                 if (numPalabras <= 10)
